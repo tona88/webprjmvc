@@ -1,0 +1,23 @@
+plugins{
+    id 'java'
+    id 'war'
+    id 'org.gretty' version '5.0.0'
+}
+gretty{
+    servletContainer = 'tomcat11'
+    contextPath='/'
+}
+repositories{
+    mavenCentral()
+}
+dependencies{
+
+    providedRuntime 'org.apache.tomcat:tomcat-api:11.0.1'
+    implementation 'org.springframework:spring-webmvc:7.0.1'
+   
+    //implementation 'org.apache.tomcat:tomcat-jsp-api:9.0.113'
+    // providedRuntime "javax.servlet.jsp:javax.servlet.jsp-api:2.3.3"
+    // implementation 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.2'
+    testImplementation "junit:junit:4.13.2"
+    implementation 'com.mysql:mysql-connector-j:9.2.0'
+}
