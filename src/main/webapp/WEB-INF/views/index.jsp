@@ -7,6 +7,6 @@
     <title>Hello world</title>
 </head>
 <body>
-    <h1>Hi ${data}</h1>
+    <h1>This is Index page</h1>
 </body>
 </html>

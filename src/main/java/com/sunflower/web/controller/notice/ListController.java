@@ -1,23 +1,22 @@
-package com.sunflower.web.controller;
+package com.sunflower.web.controller.notice;
 
-
+import org.jspecify.annotations.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
-import org.jspecify.annotations.Nullable;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
+public class ListController implements Controller {
 
-public class IndexController implements Controller{
     @Override
     @Nullable
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("data","Hello World");
-        mv.setViewName("index");
-        return mv;   
+                
+        ModelAndView mv = new ModelAndView("customer/notice/list");
+                return mv; 
     }
-    
+
+   
 }

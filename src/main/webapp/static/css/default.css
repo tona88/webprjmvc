@@ -1,0 +1,23 @@
+        *{
+            box-sizing: border-box;
+        }
+        header{
+            background-color: aqua;
+        }
+        .visual{
+            background-color: rgb(134, 107, 88);
+            height:200px;
+        }
+        aside{
+            background-color: blueviolet;
+            float:left;width:30%;
+        }
+        main{
+            padding:12px;
+            width:70%;float:left;
+            background-color: bisque;
+        }
+        footer{
+            background-color: orange;
+            clear:both;
+        }
