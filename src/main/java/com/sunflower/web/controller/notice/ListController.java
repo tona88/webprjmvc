@@ -1,6 +1,7 @@
 package com.sunflower.web.controller.notice;
 
-import org.jspecify.annotations.Nullable;
+
+import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 

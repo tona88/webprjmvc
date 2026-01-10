@@ -6,6 +6,7 @@ plugins{
 
 gretty{
     contextPath='/'
+    // servletContainer = 'tomcat10'
 }
 
 
@@ -19,7 +20,11 @@ dependencies{
     implementation 'jakarta.el:jakarta.el-api:6.0.1'
     implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.2'
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
-    implementation 'org.springframework:spring-webmvc:7.0.0'
+    implementation 'org.springframework:spring-webmvc:6.2.11'
+    implementation 'org.thymeleaf:thymeleaf:3.1.2.RELEASE'
+    implementation 'org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.2.0'
+
     implementation 'com.mysql:mysql-connector-j:9.2.0'
     
     testImplementation "junit:junit:4.13.2"
