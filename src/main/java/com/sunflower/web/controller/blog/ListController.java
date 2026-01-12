@@ -5,14 +5,14 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-import com.sunflower.web.service.blog.ArticleService;
+import com.sunflower.web.service.ArticleService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
 public class ListController implements Controller {
-
+    private ArticleService articleService = null;
     @Override
     @Nullable
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -38,10 +38,12 @@ public class ListController implements Controller {
         System.out.printf("field:%s,query:%s,page:%d\n",field,query,page);
 
         ModelAndView mv = new ModelAndView("views/blog/list");
-        ArticleService articleService = new ArticleService();
         mv.addObject("articles", articleService.getPublicArticles(field, query, page));
         mv.addObject("count",articleService.getPublicArticleCount(field, query));
         return mv; 
+    }
+    public void setArticleService(ArticleService articleService) {
+        this.articleService = articleService;
     }
 
    

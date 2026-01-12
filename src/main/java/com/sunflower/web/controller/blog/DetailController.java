@@ -4,13 +4,14 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-import com.sunflower.web.service.blog.ArticleService;
+import com.sunflower.web.service.ArticleService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 public class DetailController implements Controller {
 
+    private ArticleService articleService = null;
     @Override
     @Nullable
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -20,12 +21,16 @@ public class DetailController implements Controller {
         if(id_ != null && ! id_.equals(""))
             id = Integer.parseInt(id_);
 
-        ArticleService as =  new ArticleService();
+        
         ModelAndView mv = new ModelAndView("views/blog/detail");
-        mv.addObject("article",as.getArticle(id));
+        mv.addObject("article",articleService.getArticle(id));
         return mv;
     }
 
+   public void setArticleService(ArticleService articleService) {
+        this.articleService = articleService;
+    }
 
+   
     
 }

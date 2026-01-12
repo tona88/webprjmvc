@@ -1,4 +1,6 @@
-package com.sunflower.web.service.blog;
+package com.sunflower.web.service.jdbc;
+
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,8 +13,9 @@ import java.util.List;
 
 import com.sunflower.web.entity.Article;
 import com.sunflower.web.entity.ArticleView;
+import com.sunflower.web.service.ArticleService;
 
-public class ArticleService {
+public class JdbcArticleService implements ArticleService{
 
  
     public List<ArticleView> getArticles(int page){

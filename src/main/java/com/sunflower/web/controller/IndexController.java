@@ -5,6 +5,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import com.sunflower.web.service.ArticleService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,6 +13,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 public class IndexController implements Controller{
+
+        private ArticleService articleService = null;
+
+
     @Override
     @Nullable
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -21,5 +26,8 @@ public class IndexController implements Controller{
         return mv;   
         
     }
-    
+    public void setArticleService(ArticleService articleService) {
+        this.articleService = articleService;
+    }
+
 }
