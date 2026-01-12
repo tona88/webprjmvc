@@ -21,7 +21,7 @@ public class DetailController implements Controller {
             id = Integer.parseInt(id_);
 
         ArticleService as =  new ArticleService();
-        ModelAndView mv = new ModelAndView("blog/detail");
+        ModelAndView mv = new ModelAndView("views/blog/detail");
         mv.addObject("article",as.getArticle(id));
         return mv;
     }

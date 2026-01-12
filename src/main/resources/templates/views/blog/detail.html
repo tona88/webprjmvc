@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate="~{common/layouts/default}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +9,7 @@
     <title>Driming old man</title>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="row">
-                <h1 class="logo">/sufnfds</h1>
-                <ul class="nav">
-                    <li>Java</li>
-                    <li>Java Script</li>
-                    <li>Database</li>
-                    <li>css</li>
-                </ul>
-            </div>
-            <div class="row">
-                <span>494 post</span>
-            </div>
-        </div>
+    <div class="container" layout:fragment="Content">
         <div class="content">
             <div class="title">
                 <h3 th:text="${article.title}"></h3>
@@ -42,9 +30,7 @@
                         [[${file}]]<span th:if="${! fileStat.last }">/</span>
                     </a>
                 </p>
-
             </div>
-            
             <p th:text="${article.content}">
                 ${article.content}
             </p>
@@ -68,9 +54,5 @@
             </div>
             <div class="tags"><a href="">Git</a><a href="">cli</a></div>
         </div>
-        <div class="footer">
-            
-        </div>
-    </div>
-        
+    </div>       
 </html>

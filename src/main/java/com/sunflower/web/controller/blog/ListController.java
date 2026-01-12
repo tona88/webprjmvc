@@ -37,7 +37,7 @@ public class ListController implements Controller {
 
         System.out.printf("field:%s,query:%s,page:%d\n",field,query,page);
 
-        ModelAndView mv = new ModelAndView("blog/list");
+        ModelAndView mv = new ModelAndView("views/blog/list");
         ArticleService articleService = new ArticleService();
         mv.addObject("articles", articleService.getPublicArticles(field, query, page));
         mv.addObject("count",articleService.getPublicArticleCount(field, query));

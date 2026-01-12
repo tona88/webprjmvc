@@ -38,12 +38,7 @@
                     padding:0px 4px;
                 }
             
-                .content{
-                    /* background-color: aquamarine; */
-                    display:flex;
-                    flex-direction: column;
-                    align-items: stretch;
-                }
+                
                 article{
                     background-color:#fff;
                     padding:10px 30px;

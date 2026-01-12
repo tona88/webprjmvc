@@ -1,29 +1,15 @@
    <!DOCTYPE html>
-        <html lang="en" xmlns:th="http://www.thymeleaf.org">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="/css/default.css" />
-            <title>Driming old man</title>
-        </head>
-
+        <html lang="en" 
+        xmlns:th="http://www.thymeleaf.org" 
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{common/layouts/default}">
         <body>
-            <div class="container">
-                <div class="header">
-                    <div class="row">
-                        <h1 class="logo">/sufnfds</h1>
-                        <ul class="nav">
-                            <li>Java</li>
-                            <li>Java Script</li>
-                            <li>Database</li>
-                            <li>css</li>
-                        </ul>
-                    </div>
+               <!-- header -->
+            <div layout:fragment="Content"> 
+                <div>
                     <div class="row">
                         <span>494 post</span>
                     </div>
-                </div>
-                <div class="content">
                     <div>
                         <article th:each="article : ${articles}">
                             <h3><a th:href="@{/blog/detail(id=${article.id})}" th:text="${article.title}"></a><span th:text="${article.commentCount}"></span></h3>
@@ -53,11 +39,7 @@
                         </li>
                     </ul>
                 </div>
-
-                <div class="footer">
-
-                </div>
-            </div>
+            </div>     
         </body>
 
         </html>
