@@ -23,8 +23,7 @@
         <property name="articleService" ref="articleService"/>
     </bean>
 
-    <!-- 서비스 객체들 -->
-    <bean id="articleService" class="com.sunflower.web.service.jdbc.JdbcArticleService "/>
+
     
     <!-- Thymeleaf 뷰 리졸버 -->
     <bean id="templateResolver" class="org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver">
@@ -33,9 +32,7 @@
         <property name="templateMode" value="HTML" />
         <property name="characterEncoding" value="utf-8"/>
     </bean>
-
     <bean id="layoutDialect" class="nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect" />
-
     <bean id="templateEngine" class="org.thymeleaf.spring6.SpringTemplateEngine">
         <property name="templateResolver" ref="templateResolver" />
         <property name="additionalDialects">
@@ -44,7 +41,6 @@
             </set>
         </property>
     </bean>
-
     <bean class="org.thymeleaf.spring6.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine" />
         <property name="characterEncoding" value="utf-8"/>
