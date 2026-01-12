@@ -1,23 +1,96 @@
-        *{
-            box-sizing: border-box;
-        }
-        header{
-            background-color: aqua;
-        }
-        .visual{
-            background-color: rgb(134, 107, 88);
-            height:200px;
-        }
-        aside{
-            background-color: blueviolet;
-            float:left;width:30%;
-        }
-        main{
-            padding:12px;
-            width:70%;float:left;
-            background-color: bisque;
-        }
-        footer{
-            background-color: orange;
-            clear:both;
-        }
+  body {
+                    background-color: #f2f3f5;
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .container{
+                    width:80%;
+                    height:100vh;
+                    /* background-color:antiquewhite; */
+                    display:flex;
+                    flex-direction:column;
+                }
+                .header{
+
+                    padding:30px 0px;
+                }
+                .row{
+                    display:flex;
+                    /* background-color: tomato; */
+                    padding-top:4px;
+                }
+                
+                .logo{
+                    /* background-color: aquamarine; */
+                    flex:1
+                }
+                .nav{
+                    list-style: none;
+                    display:flex;
+                    /* background-color: beige; */
+                    padding-top:14px;
+                    padding-right:5px;
+                }
+                
+                .nav li{
+                    justify-content: space-between;
+                    padding:0px 4px;
+                }
+            
+                .content{
+                    /* background-color: aquamarine; */
+                    display:flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+                article{
+                    background-color:#fff;
+                    padding:10px 30px;
+                    border-radius: 5px;
+                    text-align: center;
+                    margin-bottom: 8px;
+                }
+
+                .pager{
+                    /* background-color:darkolivegreen; */
+                    display:flex;
+                    justify-content: center;
+                    list-style-type: none;
+                    font-size:21px;
+                    /* letter-spacing: 1em; */
+                    
+                }
+                a{
+                    text-decoration: none;
+                    padding:0px 6px;
+
+                }
+               
+                .written_date{
+                    /* background-color: dodgerblue; */
+                    flex:1;
+                }
+                .tags{
+                    /* background-color: darkcyan; */
+                }
+
+                .pager{
+                    /* background-color:khaki; */
+                    flex:1;
+                    margin:0px;
+                }
+                .pageInfo{
+                    /* background-color: orchid; */
+                    padding-right:5px;
+                }
+
+                .row h3{
+                    /* background-color: aquamarine; */
+                    margin:0px;
+                    flex:1;
+                }
+
+                .row .checker{
+                    /* background-color:cadetblue; */
+                }

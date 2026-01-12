@@ -1,0 +1,63 @@
+   <!DOCTYPE html>
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="/css/default.css" />
+            <title>Driming old man</title>
+        </head>
+
+        <body>
+            <div class="container">
+                <div class="header">
+                    <div class="row">
+                        <h1 class="logo">/sufnfds</h1>
+                        <ul class="nav">
+                            <li>Java</li>
+                            <li>Java Script</li>
+                            <li>Database</li>
+                            <li>css</li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <span>494 post</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <div>
+                        <article th:each="article : ${articles}">
+                            <h3><a th:href="@{/blog/detail(id=${article.id})}" th:text="${article.title}"></a><span th:text="${article.commentCount}"></span></h3>
+                            <p th:text="${article.content}">
+                            </p>
+                            <time datetime="" th:text="${article.createAt}"></time>
+                        </article>
+                    </div>
+                </div>
+                <!-- 페이지 설정 시작 -->
+                <div class="row">
+                    <ul class="pager"
+                        th:with="page = ${#strings.isEmpty(param.p) ? 1 : T(java.lang.Integer).parseInt(param.p)}
+                                        ,startPage=${page-(page-1)%5}
+                                        ,lastPage=${T(java.lang.Integer).parseInt(#numbers.formatInteger(T(java.lang.Math).ceil(count/10.0),1))}">
+                
+                        <li th:if="${(startPage-1) > 0 }">
+                            <a th:href="@{/blog/list(f=${param.f},q=${param.q},p=${startPage-1})}"><span>
+                                    << /span></a>
+                        </li>
+                        <li th:if="${(startPage+i.index) <= lastPage}" th:each=" sq,i : ${#numbers.sequence(1,5)}">
+                            <a th:href="@{/blog/list(f=${param.f},q=${param.q},p=${startPage+i.index})}"
+                                th:text="${startPage+i.index}">page number</a>
+                        </li>
+                        <li th:if="${(startPage + 4) < lastPage }">
+                            <a th:href="@{/blog/list(f=${param.f},q=${param.q},p=${startPage+5})}"><span>></span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer">
+
+                </div>
+            </div>
+        </body>
+
+        </html>
