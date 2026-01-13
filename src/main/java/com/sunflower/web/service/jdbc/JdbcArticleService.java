@@ -3,27 +3,22 @@ package com.sunflower.web.service.jdbc;
 
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.sql.DataSource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import com.sunflower.web.entity.Article;
 import com.sunflower.web.entity.ArticleView;
 import com.sunflower.web.service.ArticleService;
 
 public class JdbcArticleService implements ArticleService{
 
+    @Autowired
     private DataSource dataSource = null;
-  
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
 
     public List<ArticleView> getArticles(int page){
         return getArticles("title","",page);

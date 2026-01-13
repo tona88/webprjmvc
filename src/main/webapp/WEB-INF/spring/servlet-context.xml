@@ -11,16 +11,15 @@
            http://www.springframework.org/schema/context 
            http://www.springframework.org/schema/context/spring-context.xsd">
     
- 
-    <!-- 인덱스 콘트롤러 등록 -->
+    <!-- 생성된 객체의 내부 annotation을 스캔하도록 함 -->
+    <context:annotation-config />
+
+    <!-- 콘트롤러 등록 -->
     <bean id="/index" class="com.sunflower.web.controller.IndexController">
-       <property name="articleService" ref="articleService"/>
     </bean>
     <bean id="/blog/list" class="com.sunflower.web.controller.blog.ListController">
-        <property name="articleService" ref="articleService"/>
     </bean>
     <bean id="/blog/detail" class="com.sunflower.web.controller.blog.DetailController">
-        <property name="articleService" ref="articleService"/>
     </bean>
 
 

@@ -11,7 +11,10 @@
            http://www.springframework.org/schema/context 
            http://www.springframework.org/schema/context/spring-context.xsd">
     
- 
+    <!-- 현 파일 내에서 등록,생성된 객체의 내부 annotation을 스캔하도록 함 -->
+    <context:annotation-config />
+    
+    
     <!-- 서비스 객체들 -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -20,6 +23,5 @@
         <property name="password" value="root"/>
     </bean>
     <bean id="articleService" class="com.sunflower.web.service.jdbc.JdbcArticleService">
-        <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans> 

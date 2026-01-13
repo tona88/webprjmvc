@@ -1,6 +1,7 @@
 package com.sunflower.web.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
@@ -14,6 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class IndexController implements Controller{
 
+        @Autowired
         private ArticleService articleService = null;
 
 
@@ -26,8 +28,5 @@ public class IndexController implements Controller{
         return mv;   
         
     }
-    public void setArticleService(ArticleService articleService) {
-        this.articleService = articleService;
-    }
-
+   
 }

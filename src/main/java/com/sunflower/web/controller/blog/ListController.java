@@ -1,6 +1,7 @@
 package com.sunflower.web.controller.blog;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
@@ -12,7 +13,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 public class ListController implements Controller {
+    
+    @Autowired
     private ArticleService articleService = null;
+    
     @Override
     @Nullable
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -42,9 +46,5 @@ public class ListController implements Controller {
         mv.addObject("count",articleService.getPublicArticleCount(field, query));
         return mv; 
     }
-    public void setArticleService(ArticleService articleService) {
-        this.articleService = articleService;
-    }
-
    
 }
