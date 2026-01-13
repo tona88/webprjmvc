@@ -2,26 +2,22 @@ package com.sunflower.web.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
 import com.sunflower.web.service.ArticleService;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+@Controller
+public class IndexController{
+
+    @Autowired
+    private ArticleService articleService = null;
 
 
-
-public class IndexController implements Controller{
-
-        @Autowired
-        private ArticleService articleService = null;
-
-
-    @Override
-    @Nullable
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+ 
+    @RequestMapping(value="/index")
+    public ModelAndView index(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("views/index");
         mv.addObject("title","선플라워에 오신걸 환영합니다.");

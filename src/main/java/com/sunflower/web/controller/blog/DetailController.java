@@ -1,22 +1,20 @@
 package com.sunflower.web.controller.blog;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
-
 import com.sunflower.web.service.ArticleService;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class DetailController implements Controller {
+@Controller
+public class DetailController{
 
     @Autowired
     private ArticleService articleService = null;
     
-    @Override
-    @Nullable
+    @RequestMapping(value="/blog/detail")
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
           
         int id = 1;

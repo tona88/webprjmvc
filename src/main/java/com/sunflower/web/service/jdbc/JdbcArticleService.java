@@ -11,10 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.sunflower.web.entity.Article;
 import com.sunflower.web.entity.ArticleView;
 import com.sunflower.web.service.ArticleService;
 
+@Service
 public class JdbcArticleService implements ArticleService{
 
     @Autowired
