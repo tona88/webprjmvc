@@ -9,13 +9,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sunflower.web.service.ArticleService;
 
 @Controller
-public class IndexController{
+public class HomeController{
 
     @Autowired
     private ArticleService articleService = null;
 
-
- 
     @RequestMapping(value="/index")
     public ModelAndView index(){
         ModelAndView mv = new ModelAndView();

@@ -1,38 +1,39 @@
 package com.sunflower.web.controller.blog;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.sunflower.web.service.ArticleService;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
-public class ListController {
+@RequestMapping(value="/blog/")
+public class ArticleController {
     
-    @Autowired
+     @Autowired
     private ArticleService articleService = null;
     
-    @RequestMapping(value="/blog/list")
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=utf-8");
+    @RequestMapping(value="list")
+    public ModelAndView list(HttpServletRequest req,HttpServletResponse res){
+        res.setCharacterEncoding("utf-8");
+        res.setContentType("text/html;charset=utf-8");
                 
         String field = "title" ;
-        String field_ = request.getParameter("f");
+        String field_ = req.getParameter("f");
         if(field_ != null && ! ! field.equals(""))
             field=field_;
         
         String query = "";
-        String query_ = request.getParameter("q");
+        String query_ = req.getParameter("q");
         if(query_ != null && !query_.equals(""))
             query = query_;
 
         int page = 1;
-        String page_ = request.getParameter("p");
+        String page_ = req.getParameter("p");
         if(page_ != null && ! page_.equals(""))
             page = Integer.parseInt(page_);
 
@@ -42,6 +43,20 @@ public class ListController {
         mv.addObject("articles", articleService.getPublicArticles(field, query, page));
         mv.addObject("count",articleService.getPublicArticleCount(field, query));
         return mv; 
+    } 
+
+        @RequestMapping(value="detail")
+        public ModelAndView detail(HttpServletRequest request, HttpServletResponse response){
+          
+        int id = 1;
+        String id_ = request.getParameter("id");
+        if(id_ != null && ! id_.equals(""))
+            id = Integer.parseInt(id_);
+
+        
+        ModelAndView mv = new ModelAndView("views/blog/detail");
+        mv.addObject("article",articleService.getArticle(id));
+        return mv;
     }
-   
+
 }
